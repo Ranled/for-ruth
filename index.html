@@ -7,7 +7,7 @@
 <style>
   body {
     background-image: url('bg.gif');
-    background-color: #FFF5F5;
+    background-color: #ff69b4;
     position: relative;
     background-repeat: no-repeat;
     background-size: cover;
@@ -22,7 +22,7 @@
   #valentineForm {
     text-align: center;
   }
-  #yesButton, #noButton {
+  #yesButton, #noButton, #watchButton {
     background-color: #ff69b4; 
     color: white; 
     border: none;
@@ -33,7 +33,7 @@
     margin-top: 10px;
     transition: all 0.3s ease; 
   }
-  #yesButton:hover, #noButton:hover {
+  #yesButton:hover, #noButton:hover, #watchButton:hover {
     background-color: #d44a86; 
   }
   #valentineImage {
@@ -62,8 +62,11 @@
 </head>
 <body>
 <center>
-  <img id="valentineImage" src="two.png" alt="Picture of you">
-  <h1>Will you be my valentine, Ruth?</h1>
+  <form id="valentineForm">
+    <input id="watchButton" type="button" value="Watch This First" onclick="redirectToYouTube()">
+    <img id="valentineImage" src="two.png" alt="Picture of you">
+    <h1>Will you be my valentine, Ruth?</h1>
+  </form>
 </center>
 <form id="valentineForm">
   <input id="yesButton" type="button" value="Yes" onclick="sendEmail('Yes')">
@@ -76,6 +79,10 @@
     let subject = encodeURIComponent("Valentine's Day Response");
     let body = encodeURIComponent(`Ruth said ${answer}!`);
     window.location.href = `mailto:vallejoraianlee@gmail.com?subject=${subject}&body=${body}`;
+  }
+
+  function redirectToYouTube() {
+    window.location.href = "https://youtu.be/5r7kPy6DsHk?si=8-R0_xnN9fqlXcXI";
   }
 
   function enlargeNo() {
