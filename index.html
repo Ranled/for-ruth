@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Will you be my valentine?</title>
+<style>
+  body {
+    background-image: url('bg.gif');
+    background-color: #FFF5F5;
+    position: relative;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'Arial', sans-serif;
+  }
+  h1 {
+    margin-bottom: 20px;
+    font-size: 28px;
+    color: #ff69b4; 
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5); 
+  }
+  #valentineForm {
+    text-align: center;
+  }
+  #yesButton, #noButton {
+    background-color: #ff69b4; 
+    color: white; 
+    border: none;
+    padding: 10px 30px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+    transition: all 0.3s ease; 
+  }
+  #yesButton:hover, #noButton:hover {
+    background-color: #d44a86; 
+  }
+  #valentineImage {
+    width: 350px;
+    height: 350px;
+    animation: moveImage 2s infinite alternate;
+  }
+  #noButton {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+  }
+ 
+  #valentineForm input[type="submit"], #valentineForm input[type="button"] {
+    display: inline-block;
+    vertical-align: middle;
+  }
+  @keyframes moveImage {
+    from { transform: translateX(-10px); }
+    to { transform: translateX(10px); }
+  }
+  .enlarge {
+    transform: scale(1.1); 
+  }
+</style>
+</head>
+<body>
+<center>
+  <img id="valentineImage" src="two.png" alt="Picture of you">
+  <h1>Will you be my valentine, Ruth?</h1>
+</center>
+<form id="valentineForm" action="https://www.facebook.com/ranledransan" method="get" target="myIframe">
+  <input id="yesButton" type="submit" value="Yes" onclick="redirectToYouTube()">
+  <input id="noButton" type="button" value="No" onclick="enlargeNo()">
+  <iframe name="myIframe" style="display:none;"></iframe>
+</form>
+<script>
+  let noCount = 0;
+
+  function enlargeNo() {
+    const button = document.getElementById('noButton');
+    button.classList.add('enlarge'); 
+    noCount++;
+    if (noCount >= 5) {
+      window.location.href = "https://www.youtube.com/watch?v=uQnIGTaEiFU";
+    } else {
+      const maxWidth = window.innerWidth - button.offsetWidth;
+      const maxHeight = window.innerHeight - button.offsetHeight;
+      const newX = Math.random() * maxWidth;
+      const newY = Math.random() * maxHeight;
+      button.style.left = newX + 'px';
+      button.style.top = newY + 'px';
+    }
+    setTimeout(() => {
+      button.classList.remove('enlarge'); 
+    }, 0);
+  }
+
+  function redirectToYouTube() {
+    window.location.href = "https://www.youtube.com/watch?v=7Jn0DuL3CVQ";
+  }
+</script>
+</body>
+</html>
