@@ -7,7 +7,7 @@
 <style>
   body {
     background-image: url('bg.gif');
-    background-color: #ff69b4;
+    background-color: #FFD4DB;
     position: relative;
     background-repeat: no-repeat;
     background-size: cover;
@@ -46,7 +46,6 @@
     bottom: 10px;
     left: 10px;
   }
- 
   #valentineForm input[type="submit"], #valentineForm input[type="button"] {
     display: inline-block;
     vertical-align: middle;
@@ -57,6 +56,21 @@
   }
   .enlarge {
     transform: scale(1.1); 
+  }
+
+  /* Media queries for responsive design */
+  @media screen and (max-width: 768px) {
+    #valentineImage {
+      width: 250px;
+      height: 250px;
+    }
+    h1 {
+      font-size: 24px;
+    }
+    #yesButton, #noButton, #watchButton {
+      padding: 8px 20px;
+      font-size: 14px;
+    }
   }
 </style>
 </head>
@@ -69,20 +83,27 @@
   </form>
 </center>
 <form id="valentineForm">
-  <input id="yesButton" type="button" value="Yes" onclick="sendEmail('Yes')">
-  <input id="noButton" type="button" value="No" onclick="sendEmail('No')">
+  <input id="yesButton" type="button" value="Yes" onclick="redirectToYesPage()">
+  <input id="noButton" type="button" value="No" onclick="sendEmailAndRedirect('No')">
 </form>
 <script>
-  let noCount = 0;
+  function sendEmailAndRedirect(answer) {
+    sendEmail(answer);
+    window.location.href = "https://youtu.be/R0iNrBhbfsc?si=noZ3THqiNIN3UUZy";
+  }
+
+  function redirectToYouTube() {
+    window.location.href = "https://youtu.be/YfYlCc9g7fQ?si=9toc0uCAbUYrGLTq";
+  }
+
+  function redirectToYesPage() {
+    window.location.href = "yes.html";
+  }
 
   function sendEmail(answer) {
     let subject = encodeURIComponent("Valentine's Day Response");
     let body = encodeURIComponent(`Ruth said ${answer}!`);
     window.location.href = `mailto:vallejoraianlee@gmail.com?subject=${subject}&body=${body}`;
-  }
-
-  function redirectToYouTube() {
-    window.location.href = "https://youtu.be/5r7kPy6DsHk?si=8-R0_xnN9fqlXcXI";
   }
 
   function enlargeNo() {

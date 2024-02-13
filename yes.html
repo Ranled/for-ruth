@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ruthh..</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-image: url('bgyes.gif');
+    background-size: cover;
+  }
+  h1 {
+    color: #ff69b4;
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+  .pics {
+    position: relative;
+    margin-top: 50px;
+    height: 400px;
+  }
+  .center-pic {
+    width: 400px;
+    height: 400px;
+    transition: all 0.3s ease-in-out;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    animation: floatAnimation 3s infinite alternate;
+  }
+
+  .center-pic:hover {
+    transform: translate(-50%, -50%) scale(1.2);
+    animation-play-state: paused;
+  }
+
+  @keyframes floatAnimation {
+    0% {
+      transform: translate(-50%, -50%) translateY(0);
+    }
+    50% {
+      transform: translate(-50%, -50%) translateY(-20px);
+    }
+    100% {
+      transform: translate(-50%, -50%) translateY(0);
+    }
+  }
+
+  #message {
+    margin-top: 20px;
+    color: #ff69b4;
+    font-size: 18px;
+    font-style: italic;
+    line-height: 1.5;
+  }
+
+  .redirect-button {
+    display: inline-block;
+    margin-top: 20px;
+  }
+
+  .redirect-button a {
+    background-color: #ff69b4;
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease-in-out;
+  }
+
+  .redirect-button a:hover {
+    background-color: #d6247c;
+  }
+</style>
+</head>
+<body>
+  <h1>Thank you, Ruth!</h1>
+  <div class="pics" id="pic-container">
+    <img src="pic100.png" alt="Heart" class="center-pic">
+  </div>
+  <div id="message">
+    <p>Thank you, Ruth, for accepting my 2nd confession. May our bond be as strong as the love celebrated on Valentine's Day.</p>
+    <p>I am not expecting anything, but I do hope you'll take care of yourself, Ruth.</p>
+  </div>
+  <div class="redirect-button">
+    <a href="javascript:void(0)" onclick="confirmYes()">It is a yes.</a>
+  </div>
+  <div class="redirect-button">
+    <a href="flower.html">Gift for you, Ruth</a>
+  </div> 
+  <div class="redirect-button">
+    <a href="https://youtu.be/jUBSXPkwdbM?si=1i1j5qQ8AKk7lutk">Watch this, Ruth</a>
+  </div>
+
+  <script>
+    function confirmYes() {
+      var confirmation = confirm("Are you really sure?");
+      if (confirmation) {
+        sendEmail();
+      }
+    }
+
+    function sendEmail() {
+      var subject = encodeURIComponent("Valentine's Day Response");
+      var body = encodeURIComponent("Ruth said Yes!");
+      window.location.href = "mailto:vallejoraianlee@gmail.com?subject=" + subject + "&body=" + body;
+    }
+  </script>
+</body>
+</html>
